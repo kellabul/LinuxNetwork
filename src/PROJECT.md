@@ -66,31 +66,33 @@ HostMax = 10.10.63.254 \
 
 >##### С помощью команды `ip a` посмотреть существующие сетевые интерфейсы
 
-<img src="images/DO2_part2_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_2.png" alt="DO2" width="650"/>
 
 >##### Описать сетевой интерфейс, соответствующий внутренней сети, на обеих машинах и задать следующие адреса и маски: ws1 - *192.168.100.10*, маска */16*, ws2 - *172.24.116.8*, маска */12*
 
 Сетевой интерфейс, использующийся для внутренней сети - ethernet. Имя сетевого интерфейса - `enp0s3`, где  `p0s3` — физичес­кое рас­положе­ние устрой­ства на шине PCI.\
 Задаем машине ws1 адреса *192.168.100.10* и маску */16*
 
-<img src="images/DO2_part2_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_3.png" alt="DO2" width="650"/>
 
 Задаем машине ws2 адреса *172.24.116.8* и маску */12*
 
-<img src="images/DO2_part2_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_4.png" alt="DO2" width="650"/>
 
 >##### Выполнить команду `netplan apply` для перезапуска сервиса сети
 
-<img src="images/DO2_part2_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_5.png" alt="DO2" width="650"/>
 
-<img src="images/DO2_part2_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_6.png" alt="DO2" width="650"/>
 
 ### 2.1. Добавление статического маршрута вручную
 >##### Добавить статический маршрут от одной машины до другой и обратно при помощи команды вида `ip r add`
 >##### Пропинговать соединение между машинами
-- В отчёт поместить скрин с вызовом и выводом использованных команд.
-<img src="images/a.png" alt="DO2" width="650"/>
+
+<img src="images/DO2_part2.1_1.png" alt="DO2" width="650"/>
+
+<img src="images/DO2_part2.1_2.png" alt="DO2" width="650"/>
 
 ### 2.2. Добавление статического маршрута с сохранением
 >##### Перезапустить машины
