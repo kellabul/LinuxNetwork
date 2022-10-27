@@ -83,7 +83,6 @@ HostMax = 10.10.63.254 \
 >##### Выполнить команду `netplan apply` для перезапуска сервиса сети
 
 <img src="images/DO2_part2.0_5.png" alt="DO2" width="650"/>
-
 <img src="images/DO2_part2.0_6.png" alt="DO2" width="650"/>
 
 ### 2.1. Добавление статического маршрута вручную
@@ -91,15 +90,19 @@ HostMax = 10.10.63.254 \
 >##### Пропинговать соединение между машинами
 
 <img src="images/DO2_part2.1_1.png" alt="DO2" width="650"/>
-
 <img src="images/DO2_part2.1_2.png" alt="DO2" width="650"/>
 
 ### 2.2. Добавление статического маршрута с сохранением
 >##### Перезапустить машины
 >##### Добавить статический маршрут от одной машины до другой с помощью файла *etc/netplan/00-installer-config.yaml*
-- В отчёт поместить скрин с содержанием изменённого файла *etc/netplan/00-installer-config.yaml*.
+
+<img src="images/DO2_part2.2_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.2_2.png" alt="DO2" width="650"/>
+
 >##### Пропинговать соединение между машинами
-- В отчёт поместить скрин с вызовом и выводом использованной команды.
+
+<img src="images/DO2_part2.2_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.2_4.png" alt="DO2" width="650"/>
 
 ## Part 3. Утилита **iperf3**
 
