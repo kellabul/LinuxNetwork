@@ -99,70 +99,63 @@ HostMax = 10.10.63.254 \
 
 >##### С помощью команды `ip a` посмотреть существующие сетевые интерфейсы
 
-<img src="images/DO2_part2.0_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2.0_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part2.0_2.png" alt="DO2" width="750"/>
 
 >##### Описать сетевой интерфейс, соответствующий внутренней сети, на обеих машинах и задать следующие адреса и маски: ws1 - *192.168.100.10*, маска */16*, ws2 - *172.24.116.8*, маска */12*
 
 Сетевой интерфейс, использующийся для внутренней сети - ethernet. Имя сетевого интерфейса - `enp0s3`, где  `p0s3` — физичес­кое рас­положе­ние устрой­ства на шине PCI.\
 Задаем машине ws1 адреса *192.168.100.10* и маску */16*
 
-<img src="images/DO2_part2.0_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_3.png" alt="DO2" width="750"/>
 
 Задаем машине ws2 адреса *172.24.116.8* и маску */12*
 
-<img src="images/DO2_part2.0_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_4.png" alt="DO2" width="750"/>
 
 >##### Выполнить команду `netplan apply` для перезапуска сервиса сети
 
-<img src="images/DO2_part2.0_5.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2.0_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.0_5.png" alt="DO2" width="750"/>
+<img src="images/DO2_part2.0_6.png" alt="DO2" width="750"/>
 
 ### 2.1. Добавление статического маршрута вручную
 >##### Добавить статический маршрут от одной машины до другой и обратно при помощи команды вида `ip r add`
 >##### Пропинговать соединение между машинами
 
-<img src="images/DO2_part2.1_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2.1_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.1_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part2.1_2.png" alt="DO2" width="750"/>
 
 ### 2.2. Добавление статического маршрута с сохранением
 >##### Перезапустить машины
 >##### Добавить статический маршрут от одной машины до другой с помощью файла *etc/netplan/00-installer-config.yaml*
 
-<img src="images/DO2_part2.2_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2.2_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.2_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part2.2_2.png" alt="DO2" width="750"/>
 
 >##### Пропинговать соединение между машинами
 
-<img src="images/DO2_part2.2_3.png" alt="DO2" width="650"/>
-<img src="images/DO2_part2.2_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part2.2_3.png" alt="DO2" width="750"/>
+<img src="images/DO2_part2.2_4.png" alt="DO2" width="750"/>
 
 ## Part 3. Утилита **iperf3**
 
 ### 3.1. Скорость соединения
 >##### Перевести и записать в отчёт: 8 Mbps в MB/s, 100 MB/s в Kbps, 1 Gbps в Mbps
 8 Mbps = 1 MB/s\
-100 MB/s = 800000 kbps\
-1 Gbps = 1000 Mbps\
+100 MB/s = 819200 kbps\
+1 Gbps = 1024 Mbps
 
 ### 3.2. Утилита **iperf3**
 >##### Измерить скорость соединения между ws1 и ws2
 Запуск серверную часть на машине ws1:
 
-<img src="images/DO2_part3.2_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part3.2_1.png" alt="DO2" width="750"/>
 
 Обращаемся к серверной части, доступной по IP *192.168.100.10*, с машины ws2:
 
-<img src="images/DO2_part3.2_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part3.2_2.png" alt="DO2" width="750"/>
 
 ## Part 4. Сетевой экран
-
-`-` После соединения машин, перед нами стоит следующая задача: контролировать информацию, проходящую по соединению. Для этого используются сетевые экраны.
-
-**== Задание ==**
-
-*В данном задании используются виртуальные машины ws1 и ws2 из Части 2*
-
 ### 4.1. Утилита **iptables**
 >##### Создать файл */etc/firewall.sh*, имитирующий фаерволл, на ws1 и ws2:
 ```shell
@@ -180,8 +173,8 @@ iptables -X
 >##### 5) разрешить *echo reply* (машина должна "пинговаться")
 >##### Запустить файлы на обеих машинах командами `chmod +x /etc/firewall.sh` и `/etc/firewall.sh`
 
-<img src="images/DO2_part4.1_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part4.1_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part4.1_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part4.1_2.png" alt="DO2" width="750"/>
 
 - В отчёт поместить скрины с запуском обоих файлов.
 - В отчёте описать разницу между стратегиями, применёнными в первом и втором файлах.
@@ -189,8 +182,8 @@ iptables -X
 В первом случае (когда в начале пишется запрещающее правило, а в конце пишется разрешающее правило), машина принимает пакеты, но не отправляет.
 Во втором случае (когда в начале пишется разрешающее правило, а в конце пишется запрещающее правило), машина и принимает и отправляет пакеты.
 
-<img src="images/DO2_part4.1_3.png" alt="DO2" width="650"/>
-<img src="images/DO2_part4.1_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part4.1_3.png" alt="DO2" width="750"/>
+<img src="images/DO2_part4.1_4.png" alt="DO2" width="750"/>
 
 Из этого можно сделать вывод, что iptables применяет первое правило, и игнорирует последующие.
 
@@ -198,13 +191,9 @@ iptables -X
 >##### Командой **ping** найти машину, которая не "пингуется", после чего утилитой **nmap** показать, что хост машины запущен
 *Проверка: в выводе nmap должно быть сказано: `Host is up`*
 
-<img src="images/DO2_part4.2_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part4.2_1.png" alt="DO2" width="750"/>
 
 ## Part 5. Статическая маршрутизация сети
-
-`-` Пока что мы соединяли всего две машины, но теперь пришло время для статической маршрутизации целой сети.
-
-**== Задание ==**
 
 Сеть: \
 <img src="../misc/images/part5_network.png" alt="part5_network" width="650"/>
@@ -215,50 +204,50 @@ iptables -X
 >##### Настроить конфигурации машин в *etc/netplan/00-installer-config.yaml* согласно сети на рисунке.
 Рабочая станция ws11
 
-<img src="images/DO2_part5.1_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_1.png" alt="DO2" width="750"/>
 
 Рабочая станция ws21
 
-<img src="images/DO2_part5.1_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_4.png" alt="DO2" width="750"/>
 
 Рабочая станция ws22
 
-<img src="images/DO2_part5.1_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_5.png" alt="DO2" width="750"/>
 
 Роутер r1
 
-<img src="images/DO2_part5.1_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_2.png" alt="DO2" width="750"/>
 
 Роутер r2
 
-<img src="images/DO2_part5.1_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_3.png" alt="DO2" width="750"/>
 
 >##### Перезапустить сервис сети. Если ошибок нет, то командой `ip -4 a` проверить, что адрес машины задан верно. Также пропинговать ws22 с ws21. Аналогично пропинговать r1 с ws11.
 
-<img src="images/DO2_part5.1_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_6.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.1_7.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_7.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.1_8.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_8.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.1_9.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_9.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.1_10.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.1_10.png" alt="DO2" width="750"/>
 
 ### 5.2. Включение переадресации IP-адресов.
 >##### Для включения переадресации IP, выполните команду на роутерах:
 `sysctl -w net.ipv4.ip_forward=1`
 *При таком подходе переадресация не будет работать после перезагрузки системы.*
 
-<img src="images/DO2_part5.2_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part5.2_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.2_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part5.2_2.png" alt="DO2" width="750"/>
 
 >##### Откройте файл */etc/sysctl.conf* и добавьте в него следующую строку:
 `net.ipv4.ip_forward = 1`
 *При использовании этого подхода, IP-переадресация включена на постоянной основе.*
 
-<img src="images/DO2_part5.2_3.png" alt="DO2" width="650"/>
-<img src="images/DO2_part5.2_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.2_3.png" alt="DO2" width="750"/>
+<img src="images/DO2_part5.2_4.png" alt="DO2" width="750"/>
 
 ### 5.3. Установка маршрута по-умолчанию
 Пример вывода команды `ip r` после добавления шлюза:
@@ -269,19 +258,19 @@ default via 10.10.0.1 dev eth0
 >##### Настроить маршрут по-умолчанию (шлюз) для рабочих станций. Для этого добавить `default` перед IP роутера в файле конфигураций
 >##### Вызвать `ip r` и показать, что добавился маршрут в таблицу маршрутизации
 
-<img src="images/DO2_part5.3_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.3_1.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.3_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.3_2.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.3_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.3_3.png" alt="DO2" width="750"/>
 
 
 >##### Пропинговать с ws11 роутер r2 и показать на r2, что пинг доходит. Для этого использовать команду:
 `tcpdump -tn -i eth1`
 
-<img src="images/DO2_part5.3_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.3_4.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part5.3_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.3_5.png" alt="DO2" width="750"/>
 
 ### 5.4. Добавление статических маршрутов
 >##### Добавить в роутеры r1 и r2 статические маршруты в файле конфигураций. Пример для r1 маршрута в сетку 10.20.0.0/26:
@@ -296,18 +285,18 @@ default via 10.10.0.1 dev eth0
 10.20.0.0/26 via 10.100.0.12 dev eth1
 10.10.0.0/18 dev eth0 proto kernel scope link src 10.10.0.1
 ```
-<img src="images/DO2_part5.4_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part5.4_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.4_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part5.4_2.png" alt="DO2" width="750"/>
 
 >##### Запустить команды на ws11:
 `ip r list 10.10.0.0/[маска сети]` и `ip r list 0.0.0.0/0`
 
-<img src="images/DO2_part5.4_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.4_3.png" alt="DO2" width="750"/>
 
 - В отчёте объяснить, почему для адреса 10.10.0.0/\[маска сети\] был выбран маршрут, отличный от 0.0.0.0/0, хотя он попадает под маршрут по-умолчанию.
 
 Маршрут по умолчанию используется, когда нужно обратиться к хосту, который находится в сети, отличной от домашней сети хоста-отправителя, либо если в таблице маршрутизации не найден нужный маршрут. 
-Сеть 10.10.0.0/18 является домашней для хоста ws11, поэтому у него нет необходимости использовать маршрут по умолчанию.
+Сеть 10.10.0.0/18 является домашней для хоста ws11, поэтому в данном случае использование маршрута по умолчанию не требуется.
 
 ### 5.5. Построение списка маршрутизаторов
 Пример вывода утилиты **traceroute** после добавления шлюза:
@@ -320,8 +309,8 @@ default via 10.10.0.1 dev eth0
 `tcpdump -tnv -i eth0`
 >##### При помощи утилиты **traceroute** построить список маршрутизаторов на пути от ws11 до ws21
 
-<img src="images/DO2_part5.5_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part5.5_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.5_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part5.5_2.png" alt="DO2" width="750"/>
 
 - В отчёте, опираясь на вывод, полученный из дампа на r1, объяснить принцип работы построения пути при помощи **traceroute**.
 
@@ -333,17 +322,10 @@ default via 10.10.0.1 dev eth0
 >##### Пропинговать с ws11 несуществующий IP (например, *10.30.0.111*) с помощью команды:
 `ping -c 1 10.30.0.111`
 
-<img src="images/DO2_part5.6_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part5.6_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part5.6_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part5.6_2.png" alt="DO2" width="750"/>
 
 ## Part 6. Динамическая настройка IP с помощью **DHCP**
-
-`-` Следующим нашим шагом будет более подробное знакомство со службой **DHCP**, которую ты уже знаешь.
-
-**== Задание ==**
-
-*В данном задании используются виртуальные машины из Части 5*
-
 >##### Для r2 настроить в файле */etc/dhcp/dhcpd.conf* конфигурацию службы **DHCP**:
 Устанавливаем dhcp сервер на r2:
 ```shell
@@ -362,54 +344,54 @@ subnet 10.20.0.0 netmask 255.255.255.192
 ```
 >##### 2) в файле *resolv.conf* прописать `nameserver 8.8.8.8.`
 
-<img src="images/DO2_part6_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_1.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part6_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_2.png" alt="DO2" width="750"/>
 
 >##### Перезагрузить службу **DHCP** командой `systemctl restart isc-dhcp-server`. Машину ws21 перезагрузить при помощи `reboot` и через `ip a` показать, что она получила адрес. Также пропинговать ws22 с ws21.
 
-<img src="images/DO2_part6_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_3.png" alt="DO2" width="750"/>
 
 Дополнительно пропингуем w21 с w22:
 
-<img src="images/DO2_part6_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_4.png" alt="DO2" width="750"/>
 
 >##### Указать MAC адрес у ws11, для этого в *etc/netplan/00-installer-config.yaml* надо добавить строки: `macaddress: 10:10:10:10:10:BA`, `dhcp4: true`
 
-<img src="images/DO2_part6_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_5.png" alt="DO2" width="750"/>
 
 Дополнительно необходимо прописать MAC адрес в настройках сети виртуальной машины ws11 в VirtuaBox.
 
 >##### Для r1 настроить аналогично r2, но сделать выдачу адресов с жесткой привязкой к MAC-адресу (ws11). Провести аналогичные тесты
 
-<img src="images/DO2_part6_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_6.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part6_7.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_7.png" alt="DO2" width="750"/>
 
 Перезагружаем ws11 и пингуем ws22:
 
-<img src="images/DO2_part6_8.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_8.png" alt="DO2" width="750"/>
 
 Дополнительно пингуем ws11 с w22:
 
-<img src="images/DO2_part6_9.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_9.png" alt="DO2" width="750"/>
 
 >##### Запросить с ws21 обновление ip адреса
 
-<img src="images/DO2_part6_10.png" alt="DO2" width="650"/>
+<img src="images/DO2_part6_10.png" alt="DO2" width="750"/>
 
 Сначала освобождаем ip-адрес командой `dhclient -r`, а затем запрашиваем новый той же командой, но без аргументов (на данном устройстве у нас только один сетевой интерфейс, поэтому указывать его дополнительно в качестве аргумента к команде не требуется).
 
 ## Part 7. **NAT**
 >##### В файле */etc/apache2/ports.conf* на ws22 и r1 изменить строку `Listen 80` на `Listen 0.0.0.0:80`, то есть сделать сервер Apache2 общедоступным
 
-<img src="images/DO2_part7_1.png" alt="DO2" width="650"/>
-<img src="images/DO2_part7_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_1.png" alt="DO2" width="750"/>
+<img src="images/DO2_part7_2.png" alt="DO2" width="750"/>
 
 >##### Запустить веб-сервер Apache командой `service apache2 start` на ws22 и r1
 
-<img src="images/DO2_part7_3.png" alt="DO2" width="650"/>
-<img src="images/DO2_part7_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_3.png" alt="DO2" width="750"/>
+<img src="images/DO2_part7_4.png" alt="DO2" width="750"/>
 
 >##### Добавить в фаервол, созданный по аналогии с фаерволом из Части 4, на r2 следующие правила:
 >##### 1) Удаление правил в таблице filter - `iptables -F`
@@ -418,11 +400,11 @@ subnet 10.20.0.0 netmask 255.255.255.192
 >##### Запускать файл также, как в Части 4
 >##### Проверить соединение между ws22 и r1 командой `ping`
 
-<img src="images/DO2_part7_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_5.png" alt="DO2" width="750"/>
 
 *При запуске файла с этими правилами, ws22 не должна "пинговаться" с r1*
 
-<img src="images/DO2_part7_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_6.png" alt="DO2" width="750"/>
 
 >##### Добавить в файл ещё одно правило:
 >##### 4) Разрешить маршрутизацию всех пакетов протокола **ICMP**
@@ -433,7 +415,7 @@ iptables -A FORWARD -p icmp -j ACCEPT
 >##### Проверить соединение между ws22 и r1 командой `ping`
 *При запуске файла с этими правилами, ws22 должна "пинговаться" с r1*
 
-<img src="images/DO2_part7_7.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_7.png" alt="DO2" width="750"/>
 
 >##### Добавить в файл ещё два правила:
 >##### 5) Включить **SNAT**, а именно маскирование всех локальных ip из локальной сети, находящейся за r2 (по обозначениям из Части 5 - сеть 10.20.0.0)
@@ -441,53 +423,53 @@ iptables -A FORWARD -p icmp -j ACCEPT
 
 [Руководство по iptables](https://www.opennet.ru/docs/RUS/iptables/#SNATTARGET)
 
-<img src="images/DO2_part7_8.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_8.png" alt="DO2" width="750"/>
 
 >##### Запускать файл также, как в Части 4
 >##### Проверить соединение по TCP для **SNAT**, для этого с ws22 подключиться к серверу Apache на r1 командой:
 `telnet [адрес] [порт]`
 
-<img src="images/DO2_part7_9.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_9.png" alt="DO2" width="750"/>
 
 >##### Проверить соединение по TCP для **DNAT**, для этого с r1 подключиться к серверу Apache на ws22 командой `telnet` (обращаться по адресу r2 и порту 8080)
 
-<img src="images/DO2_part7_10.png" alt="DO2" width="650"/>
+<img src="images/DO2_part7_10.png" alt="DO2" width="750"/>
 
 ## Part 8. Дополнительно. Знакомство с **SSH Tunnels**
 >##### Запустить на r2 фаервол с правилами из Части 7
 
-<img src="images/DO2_part8_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_1.png" alt="DO2" width="750"/>
 
 >##### Запустить веб-сервер **Apache** на ws22 только на localhost (то есть в файле */etc/apache2/ports.conf* изменить строку `Listen 80` на `Listen localhost:80`)
 
-<img src="images/DO2_part8_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_2.png" alt="DO2" width="750"/>
 
 >##### Воспользоваться *Local TCP forwarding* с ws21 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws21
 
-<img src="images/DO2_part8_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_3.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part8_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_4.png" alt="DO2" width="750"/>
 
 >##### Воспользоваться *Remote TCP forwarding* c ws11 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws11
 
-<img src="images/DO2_part8_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_5.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part8_6.png" alt="DO2" width="650"/>
+<img src="images/DO2_part8_6.png" alt="DO2" width="750"/>
 
-\
+
 
 >##### Сохранить дампы образов виртуальных машин
 
 \
-<img src="images/DO2_part9_1.png" alt="DO2" width="650"/>
+<img src="images/DO2_part9_1.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part9_2.png" alt="DO2" width="650"/>
+<img src="images/DO2_part9_2.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part9_3.png" alt="DO2" width="650"/>
+<img src="images/DO2_part9_3.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part9_4.png" alt="DO2" width="650"/>
+<img src="images/DO2_part9_4.png" alt="DO2" width="750"/>
 
-<img src="images/DO2_part9_5.png" alt="DO2" width="650"/>
+<img src="images/DO2_part9_5.png" alt="DO2" width="750"/>
 
 
 
